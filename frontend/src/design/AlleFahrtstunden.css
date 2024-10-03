@@ -1,0 +1,211 @@
+/* AlleFahrtstunden.css */
+
+/* Schriftarten einbinden */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap');
+
+/* Container für den gesamten Inhalt */
+.alle-fahrtstunden-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e2e2e2 0%, #c9d6ff 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Stil für die Überschrift */
+.alle-fahrtstunden-container h1 {
+    text-align: center;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.alle-fahrtstunden-container h1::after {
+    content: '';
+    width: 60px;
+    height: 6px;
+    background-color: #6c63ff;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 5px;
+}
+
+/* Stil für die Tabelle */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+/* Tabellenkopf */
+.styled-table thead tr {
+    background-color: #6c63ff;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Tabellenzellen */
+.styled-table th,
+.styled-table td {
+    padding: 16px 20px;
+    position: relative;
+}
+
+/* Anpassung des Abstands für Dauer (Minuten) */
+.styled-table td[data-label="Dauer (Minuten)"],
+.styled-table th:nth-child(5) {
+    text-align: center;
+}
+
+/* Tabellenzeilen */
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Zebra-Streifen Effekt */
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: #f3f3f3;
+}
+
+/* Hover-Effekt */
+.styled-table tbody tr:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+/* Letzte Zeile ohne Rahmen */
+.styled-table tbody tr:last-of-type {
+    border-bottom: none;
+}
+
+/* Datenlabel für Responsive Tabelle */
+.styled-table td[data-label]:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+    color: #6c63ff;
+}
+
+/* Responsive Tabelle */
+@media screen and (max-width: 768px) {
+    .styled-table thead {
+        display: none;
+    }
+
+    .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .styled-table tr {
+        margin-bottom: 15px;
+    }
+
+    .styled-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .styled-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Zusatz: Hover-Effekt für Tabellenzellen */
+.styled-table td:hover {
+    background-color: #d1c4e9;
+    color: #fff;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6c63ff;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Zusatz: Schatteneffekt für die Überschrift */
+.alle-fahrtstunden-container h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Zusatz: Transition für Hover-Effekte */
+.styled-table tbody tr:hover td {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.save-button {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.save-button:hover {
+    background-color: #574b90;
+}
+
+.save-button.saved {
+    background-color: #28a745;
+}
+
+.save-button.saved:hover {
+    background-color: #218838;
+}
+
+.save-button:focus {
+    outline: none;
+}
+
+/* Anpassung des Abstands für Speichern-Spalte */
+.styled-table td:nth-child(6),
+.styled-table th:nth-child(6) {
+    text-align: center;
+}

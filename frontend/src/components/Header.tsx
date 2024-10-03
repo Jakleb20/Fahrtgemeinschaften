@@ -1,23 +1,26 @@
-import {useNavigate} from "react-router-dom";
+// Header.tsx
+import { useNavigate } from "react-router-dom";
 import './Header.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Header = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
-            <nav id="navbar">
-                <div id="left-section">
-                    <h1>Fahrtgemeinschaft</h1>
+        <header className="header">
+            <div className="header-container">
+                <div className="logo" onClick={() => navigate("/")}>
+                    <img src="/logo.png" alt="Logo" className="logo-image" />
+                    <span className="logo-text">Fahrtgemeinschaft</span>
                 </div>
-                <div id="center-section">
-                    <a style={{userSelect: "none"}} onClick={() => navigate("/karte")} id="nav-link">Karte</a>
-                    <a style={{userSelect: "none"}} onClick={() => navigate("/allefahrtgemeinschaften")} id="nav-link">Alle Fahrtgemeinschaften</a>
-                </div>
-            </nav>
-
-            {/* Rest of your homepage content */}
-        </div>
+                <nav className="nav">
+                    <a className="nav-link" onClick={() => navigate("/karte")}>Karte</a>
+                    <a className="nav-link" onClick={() => navigate("/allefahrtgemeinschaften")}>Alle Fahrtgemeinschaften</a>
+                    <a className="nav-link" onClick={() => navigate("/allefahrtstunden")}>Alle Fahrten</a>
+                    <a className="nav-link" onClick={() => navigate("/gespeichertefahrten")}>Gespeicherte Fahrten</a>
+                </nav>
+            </div>
+        </header>
     );
 };
 
